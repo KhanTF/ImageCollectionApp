@@ -2,6 +2,7 @@ package ru.rage.image.data.gateway
 
 import android.content.Context
 import io.reactivex.Single
+import ru.rage.image.data.db.dao.ImageDao
 import ru.rage.image.data.mapper.ImageMapper
 import ru.rage.image.data.network.image.RandomImageRequest
 import ru.rage.image.domain.entity.ImageEntity
@@ -16,7 +17,8 @@ import javax.inject.Singleton
 class ImageGatewayImpl @Inject constructor(
     private val context: Context,
     private val fileStorageHelper: FileStorageHelper,
-    private val randomImageRequest: RandomImageRequest
+    private val randomImageRequest: RandomImageRequest,
+    private val imageDao: ImageDao
 ) : ImageGateway {
 
     companion object {
@@ -53,6 +55,10 @@ class ImageGatewayImpl @Inject constructor(
                 fileStorageHelper.save(file, response.bytes(), true)
             })
             .map(ImageMapper::mapTemporary)
+    }
+
+    override fun getImage(id: Long): Single<ImageEntity> {
+        return imageDao.getImageById(id).map(ImageMapper::mapLocal)
     }
 
 }

@@ -5,7 +5,7 @@
 
         <variable
             name="viewModel"
-            type="ru.rage.image.presentation.ui.main.image.IRandomImageViewModel" />
+            type="ru.rage.image.presentation.ui.main.image.random.IRandomImageViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"

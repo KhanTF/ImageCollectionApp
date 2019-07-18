@@ -1,12 +1,9 @@
-package ru.rage.image.presentation.ui.main.image
+package ru.rage.image.presentation.ui.main.image.random
 
-import android.Manifest
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.ActivityCompat
 import androidx.lifecycle.Observer
 import ru.rage.image.R
 import ru.rage.image.databinding.FragmentRandomImageBinding
@@ -18,17 +15,12 @@ import javax.inject.Inject
 
 class RandomImageFragment : BaseFragment() {
 
-    companion object {
-        private val PERMISSIONS = arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)
-    }
-
     @Inject
     lateinit var viewModel: IRandomImageViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (PermissionUtil.getPermissionState(this, PERMISSIONS) == PermissionState.GRANTED)
-            viewModel.onPermissionPrepared()
+        viewModel.getNeedPermissions().observe(this, Observer { processPermissions(it) })
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -38,10 +30,9 @@ class RandomImageFragment : BaseFragment() {
         return binding.root
     }
 
-    override fun onStart() {
-        super.onStart()
-        if (PermissionUtil.getPermissionState(this, PERMISSIONS) != PermissionState.GRANTED) {
-            PermissionUtil.requestPermission(this, 0, PERMISSIONS)
+    private fun processPermissions(permissions: Array<String>) {
+        if (permissions.isNotEmpty()) {
+            PermissionUtil.requestPermission(this, 0, permissions)
         }
     }
 

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/randomImageFragment"
-        android:name="ru.rage.image.presentation.ui.main.image.RandomImageFragment"
+        android:name="ru.rage.image.presentation.ui.main.image.random.RandomImageFragment"
         android:label="MapFragment"
         tools:layout="@layout/fragment_random_image" />
 

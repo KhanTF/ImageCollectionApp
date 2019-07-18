@@ -1,17 +1,18 @@
 package ru.rage.image.presentation.ui.main
 
-import androidx.lifecycle.ViewModelProviders
 import dagger.Module
 import dagger.Provides
 import ru.rage.image.R
 import ru.rage.image.presentation.navigation.NavControllerRouter
+import ru.rage.image.presentation.ui.base.provideViewModel
+import javax.inject.Provider
 
 @Module(includes = [MainBuilder::class])
 class MainModule{
 
     @Provides
-    fun provideViewModel(mainActivity: MainActivity, mainViewModelFactory: MainViewModelFactory) : IMainViewModel {
-        return ViewModelProviders.of(mainActivity,mainViewModelFactory).get(MainViewModel::class.java)
+    fun provideViewModel(mainActivity: MainActivity,mainViewModel: Provider<MainViewModel>) : IMainViewModel {
+        return mainActivity.provideViewModel(mainViewModel)
     }
 
     @Provides

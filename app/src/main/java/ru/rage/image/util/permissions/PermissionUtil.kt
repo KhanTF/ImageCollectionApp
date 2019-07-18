@@ -1,6 +1,7 @@
 package ru.rage.image.util.permissions
 
 import android.app.Activity
+import android.content.Context
 import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
@@ -12,9 +13,9 @@ object PermissionUtil {
         else -> PermissionState.DENIED
     }
 
-    fun getPermissionState(activity: Activity, permissions: Array<String>): PermissionState {
+    fun getPermissionState(context: Context, permissions: Array<String>): PermissionState {
         for (permission in permissions) {
-            val state = getState(ActivityCompat.checkSelfPermission(activity, permission))
+            val state = getState(ActivityCompat.checkSelfPermission(context, permission))
             if (state != PermissionState.GRANTED) return state
         }
         return PermissionState.GRANTED

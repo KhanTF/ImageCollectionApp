@@ -6,4 +6,5 @@ import java.io.File
 
 interface ImageGateway {
     fun getRandomImage(width: Int, height: Int): Single<ImageEntity>
+    fun getImage(id: Long): Single<ImageEntity>
 }

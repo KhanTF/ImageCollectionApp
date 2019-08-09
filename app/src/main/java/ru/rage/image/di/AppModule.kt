@@ -12,7 +12,4 @@ class AppModule {
     @Provides
     fun provideContext(application: Application): Context = application
 
-    @Provides
-    fun providePermissionHelper(application: Application) : PermissionHelper = PermissionHelper(application)
-
 }

@@ -1,4 +1,4 @@
-package ru.rage.image.presentation.conversions
+package ru.rage.image.util.mvvm.conversions
 
 import android.view.View
 import androidx.databinding.BindingConversion

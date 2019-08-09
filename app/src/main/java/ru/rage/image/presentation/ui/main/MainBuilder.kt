@@ -2,11 +2,15 @@ package ru.rage.image.presentation.ui.main
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
-import ru.rage.image.presentation.ui.main.image.random.RandomImageFragment
-import ru.rage.image.presentation.ui.main.image.random.RandomImageModule
+import ru.rage.image.presentation.ui.main.image.ImageListFragment
+import ru.rage.image.presentation.ui.main.image.ImageListModule
+import ru.rage.image.presentation.ui.main.viewer.ImageViewerFragment
+import ru.rage.image.presentation.ui.main.viewer.ImageViewerModule
 
 @Module
 abstract class MainBuilder{
-    @ContributesAndroidInjector(modules = [RandomImageModule::class])
-    abstract fun buildRandomImageFragment() : RandomImageFragment
+    @ContributesAndroidInjector(modules = [ImageViewerModule::class])
+    abstract fun buildRandomImageFragment() : ImageViewerFragment
+    @ContributesAndroidInjector(modules = [ImageListModule::class])
+    abstract fun buildImageListFragment() : ImageListFragment
 }

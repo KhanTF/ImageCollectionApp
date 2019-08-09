@@ -3,12 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@+id/randomImageFragment">
+    app:startDestination="@+id/imageListFragment">
 
     <fragment
-        android:id="@+id/randomImageFragment"
-        android:name="ru.rage.image.presentation.ui.main.image.random.RandomImageFragment"
-        android:label="MapFragment"
-        tools:layout="@layout/fragment_random_image" />
+        android:id="@+id/imageListFragment"
+        android:name="ru.rage.image.presentation.ui.main.image.ImageListFragment"
+        tools:layout="@layout/fragment_image_list" />
 
+    <fragment
+        android:id="@+id/imageViewerFragment"
+        android:name="ru.rage.image.presentation.ui.main.viewer.ImageViewerFragment"
+        android:label="MapFragment"
+        tools:layout="@layout/fragment_image_viewer" >
+
+        <argument
+            android:name="path"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+
+    </fragment>
 </navigation>

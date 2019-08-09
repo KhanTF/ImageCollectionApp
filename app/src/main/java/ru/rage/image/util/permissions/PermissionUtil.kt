@@ -33,10 +33,10 @@ object PermissionUtil {
         fragment.requestPermissions(permissions, requestCode)
     }
 
-    fun processRequestPermissionsResult(activity: Activity, permissions: Array<out String>, grantResults: IntArray): PermissionState {
+    fun processRequestPermissionsResult(activity: Activity, permissions: Array<out String>): PermissionState {
         for (i in 0 until permissions.size) {
             val permission = permissions[i]
-            val grantResult = grantResults[i]
+            val grantResult = ActivityCompat.checkSelfPermission(activity,permission)
             val state = getState(grantResult)
             if (state == PermissionState.DENIED) {
                 return if (ActivityCompat.shouldShowRequestPermissionRationale(activity, permission)) {
@@ -49,8 +49,8 @@ object PermissionUtil {
         return PermissionState.GRANTED
     }
 
-    fun processRequestPermissionsResult(fragment: Fragment, permissions: Array<out String>, grantResults: IntArray): PermissionState {
-        return processRequestPermissionsResult(fragment.requireActivity(), permissions, grantResults)
+    fun processRequestPermissionsResult(fragment: Fragment, permissions: Array<out String>): PermissionState {
+        return processRequestPermissionsResult(fragment.requireActivity(), permissions)
     }
 
 

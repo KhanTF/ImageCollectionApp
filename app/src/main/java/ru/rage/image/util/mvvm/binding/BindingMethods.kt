@@ -1,4 +1,4 @@
-package ru.rage.image.presentation.binding
+package ru.rage.image.util.mvvm.binding
 
 import androidx.databinding.BindingMethod
 import androidx.databinding.BindingMethods
@@ -10,4 +10,4 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
         attribute = "app:onNavigationItemSelected",
         method = "setOnNavigationItemSelectedListener")
 )
-class BottomNavigationViewBindingAdapter
+object BindingMethods

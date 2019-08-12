@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">ImageGoogleComponents</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_selection">Selection</string>
+    <string name="title_collection">Collection</string>
     <string name="title_notifications">Notifications</string>
-    <string name="random_image">Random</string>
     <string name="error_need_permissions">Grant permissions in settings</string>
+    <string name="retry">Retry</string>
 </resources>

@@ -15,7 +15,8 @@
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/image_pager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:visibility="@{viewModel.errorMessage==null &amp;&amp; viewModel.needPermissions==null}"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"

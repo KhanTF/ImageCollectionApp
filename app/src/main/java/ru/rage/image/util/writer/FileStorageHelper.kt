@@ -1,4 +1,4 @@
-package ru.rage.image.util.cache
+package ru.rage.image.util.writer
 
 import java.io.File
 

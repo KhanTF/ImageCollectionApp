@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.fragment_image_list.*
 import ru.rage.image.R
 import ru.rage.image.databinding.FragmentImageListBinding
+import ru.rage.image.presentation.common.helpers.ZoomOutPageTransformer
 import ru.rage.image.presentation.ui.base.BaseFragment
 import javax.inject.Inject
 
@@ -53,6 +54,12 @@ class ImageListFragment : BaseFragment(){
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
         return binding.root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        image_pager.setPageTransformer(true, ZoomOutPageTransformer())
+        image_pager.offscreenPageLimit = 2
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {

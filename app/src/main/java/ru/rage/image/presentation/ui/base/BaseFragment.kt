@@ -1,5 +1,6 @@
 package ru.rage.image.presentation.ui.base
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -41,12 +42,16 @@ abstract class BaseFragment : Fragment(), HasSupportFragmentInjector {
         return DataBindingUtil.inflate<T>(layoutInflater, layoutId, container, false)
     }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        AndroidSupportInjection.inject(this)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (savedInstanceState != null) {
             id = savedInstanceState.getString(KEY_ID, null) ?: throw IllegalArgumentException("KEY_ID not exist")
         }
-        AndroidSupportInjection.inject(this)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

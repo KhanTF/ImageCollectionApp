@@ -1,4 +1,4 @@
-package ru.rage.image.util.mvvm.binding
+package ru.rage.image.presentation.common.mvvm.binding
 
 import androidx.databinding.BindingMethod
 import androidx.databinding.BindingMethods

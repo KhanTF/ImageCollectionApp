@@ -4,12 +4,12 @@
     <item
             android:id="@+id/randomImageFragment"
             android:icon="@drawable/ic_image"
-            android:title="@string/title_home"/>
+            android:title="@string/title_selection"/>
 
     <item
             android:id="@+id/dashboardFragment"
             android:icon="@drawable/ic_dashboard_black_24dp"
-            android:title="@string/title_dashboard"/>
+            android:title="@string/title_collection"/>
 
     <item
             android:id="@+id/cityFragment"

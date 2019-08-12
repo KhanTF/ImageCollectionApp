@@ -1,6 +1,5 @@
-package ru.rage.image.util.mvvm.live
+package ru.rage.image.presentation.common.mvvm.live
 
-import androidx.databinding.adapters.NumberPickerBindingAdapter.setValue
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer

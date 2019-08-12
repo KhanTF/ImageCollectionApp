@@ -7,7 +7,7 @@ import ru.rage.image.data.mapper.ImageMapper
 import ru.rage.image.data.network.image.RandomImageRequest
 import ru.rage.image.domain.entity.ImageEntity
 import ru.rage.image.domain.gateway.ImageGateway
-import ru.rage.image.util.cache.FileStorageHelper
+import ru.rage.image.util.writer.FileStorageHelper
 import java.io.File
 import java.util.*
 import javax.inject.Inject

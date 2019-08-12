@@ -8,7 +8,7 @@ import ru.rage.image.R
 import ru.rage.image.presentation.ui.base.BaseViewModel
 import ru.rage.image.presentation.ui.main.viewer.ImageViewerFragment
 import ru.rage.image.presentation.ui.main.viewer.ImageViewerFragmentArgs
-import ru.rage.image.util.mvvm.live.SingleLiveData
+import ru.rage.image.presentation.common.mvvm.live.SingleLiveData
 import ru.rage.image.util.permissions.PermissionHelper
 import ru.rage.image.util.permissions.PermissionState
 import ru.rage.image.util.resources.ResourcesManager
@@ -23,7 +23,7 @@ class ImageListViewModel @Inject constructor(
     }
 
     private val imageViewerProviderMutableLiveData = SingleLiveData<((Int) -> Fragment)?>()
-    private val needPermissionMutableLiveData = SingleLiveData<Array<String>?>()
+    private val needPermissionMutableLiveData = MutableLiveData<Array<String>?>()
     private val errorMessageMutableLiveData = MutableLiveData<String?>()
 
     override fun getImageViewerProvider(): LiveData<((Int) -> Fragment)?> = imageViewerProviderMutableLiveData
